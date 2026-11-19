@@ -1,0 +1,68 @@
+1
+00:00:00,000 --> 00:00:05,699
+Rearrange an array into three groups, in
+place, in a single pass. It looks easy.
+
+2
+00:00:05,749 --> 00:00:08,430
+But most people get the indices wrong.
+
+3
+00:00:09,267 --> 00:00:13,297
+Here, i is three, so the
+pivot value is three.
+
+4
+00:00:14,833 --> 00:00:17,960
+From here, only the pivot's value matters.
+
+5
+00:00:18,010 --> 00:00:20,759
+Smaller and equal both start at zero.
+
+6
+00:00:20,809 --> 00:00:23,103
+Larger starts one past the end.
+
+7
+00:00:24,333 --> 00:00:27,989
+The element at equal is
+three, the same as the pivot.
+
+8
+00:00:28,039 --> 00:00:32,043
+It extends the equal block, so
+equal moves one step right.
+
+9
+00:00:33,167 --> 00:00:36,435
+Next is five, which is
+greater than the pivot.
+
+10
+00:00:36,485 --> 00:00:41,197
+Move larger one step left, then
+swap the five into the top region.
+
+11
+00:00:41,733 --> 00:00:43,856
+Notice that equal does not move.
+
+12
+00:00:43,906 --> 00:00:47,523
+The two that just arrived
+has not been classified yet.
+
+13
+00:00:48,767 --> 00:00:53,277
+Two is less than the pivot, so swap
+it with the element at smaller.
+
+14
+00:00:54,600 --> 00:00:59,617
+The three that came back is a pivot
+value, so it is already classified.
+
+15
+00:00:59,667 --> 00:01:01,830
+Both smaller and equal advance.

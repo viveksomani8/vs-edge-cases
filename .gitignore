@@ -1,0 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Rendered video (rebuilt from the scene scripts and the audio clips)
+media/
+videos/**/*.mp4

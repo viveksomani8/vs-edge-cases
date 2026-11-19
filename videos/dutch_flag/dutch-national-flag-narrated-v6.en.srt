@@ -1,0 +1,256 @@
+1
+00:00:00,000 --> 00:00:05,699
+Rearrange an array into three groups, in
+place, in a single pass. It looks easy.
+
+2
+00:00:05,749 --> 00:00:08,430
+But most people get the indices wrong.
+
+3
+00:00:09,467 --> 00:00:11,936
+The Dutch national flag problem.
+
+4
+00:00:11,986 --> 00:00:15,321
+You are given an array,
+A, and an index, i.
+
+5
+00:00:15,371 --> 00:00:19,337
+Rearrange the array around
+the value at that index.
+
+6
+00:00:19,867 --> 00:00:23,897
+Here, i is three, so the
+pivot value is three.
+
+7
+00:00:24,433 --> 00:00:29,452
+The goal: every smaller value first,
+then the values equal to the pivot,
+
+8
+00:00:29,502 --> 00:00:30,931
+then the larger ones.
+
+9
+00:00:30,981 --> 00:00:34,943
+And it should take linear
+time, and constant extra space.
+
+10
+00:00:35,967 --> 00:00:41,581
+The brute force way is to copy the
+values into three lists: lower, equal,
+
+11
+00:00:41,631 --> 00:00:43,677
+and higher. Then join them.
+
+12
+00:00:44,200 --> 00:00:47,719
+That is correct, but the
+three lists cost extra space,
+
+13
+00:00:47,769 --> 00:00:50,230
+proportional to the size of the array.
+
+14
+00:00:51,367 --> 00:00:57,026
+A better idea is to keep four regions
+inside the same array: less than the pivot,
+
+15
+00:00:57,076 --> 00:00:59,423
+equal to it, unknown, and greater.
+
+16
+00:00:59,473 --> 00:01:04,357
+Three indices, called smaller, equal,
+and larger, mark the boundaries.
+
+17
+00:01:04,900 --> 00:01:07,761
+Each step classifies one unknown element,
+
+18
+00:01:07,811 --> 00:01:11,170
+so the unknown region
+shrinks until it is empty.
+
+19
+00:01:13,800 --> 00:01:16,927
+From here, only the pivot's value matters.
+
+20
+00:01:16,977 --> 00:01:19,725
+Smaller and equal both start at zero.
+
+21
+00:01:19,775 --> 00:01:22,070
+Larger starts one past the end.
+
+22
+00:01:23,300 --> 00:01:26,955
+The element at equal is
+three, the same as the pivot.
+
+23
+00:01:27,005 --> 00:01:31,010
+It extends the equal block, so
+equal moves one step right.
+
+24
+00:01:32,133 --> 00:01:35,402
+Next is five, which is
+greater than the pivot.
+
+25
+00:01:35,452 --> 00:01:40,163
+Move larger one step left, then
+swap the five into the top region.
+
+26
+00:01:40,713 --> 00:01:42,836
+Notice that equal does not move.
+
+27
+00:01:42,886 --> 00:01:46,503
+The two that just arrived
+has not been classified yet.
+
+28
+00:01:47,753 --> 00:01:52,263
+Two is less than the pivot, so swap
+it with the element at smaller.
+
+29
+00:01:53,613 --> 00:01:58,631
+The three that came back is a pivot
+value, so it is already classified.
+
+30
+00:01:58,681 --> 00:02:00,843
+Both smaller and equal advance.
+
+31
+00:02:01,993 --> 00:02:06,903
+Two again: less than the
+pivot. Swap, and advance both.
+
+32
+00:02:08,053 --> 00:02:11,443
+Three equals the pivot. Equal moves right.
+
+33
+00:02:12,587 --> 00:02:14,659
+One is less than the pivot.
+
+34
+00:02:14,709 --> 00:02:17,097
+Swap it down, and advance both.
+
+35
+00:02:18,247 --> 00:02:23,717
+Five is greater. Move larger
+left, and swap. Equal stays put.
+
+36
+00:02:24,867 --> 00:02:29,377
+The three that arrived equals
+the pivot, so equal moves right.
+
+37
+00:02:29,827 --> 00:02:31,856
+Equal has now reached larger.
+
+38
+00:02:31,906 --> 00:02:35,297
+No unknown elements are
+left, and the loop ends.
+
+39
+00:02:36,247 --> 00:02:39,024
+One pass over the array is linear time.
+
+40
+00:02:39,074 --> 00:02:43,157
+And three indices, with no
+extra list, is constant space.
+
+41
+00:02:44,807 --> 00:02:47,380
+So, where is this used? In quicksort.
+
+42
+00:02:47,430 --> 00:02:53,195
+After one partition, every value equal to
+the pivot is already in its final place.
+
+43
+00:02:53,245 --> 00:02:57,237
+Only the smaller and the larger
+parts still need sorting.
+
+44
+00:02:57,787 --> 00:03:02,407
+A plain two-way partition would sort
+those equal values again and again.
+
+45
+00:03:02,457 --> 00:03:07,337
+That is why a three-way partition is
+used when the data has many duplicates.
+
+46
+00:03:07,887 --> 00:03:12,113
+The same step also finds the
+median, or the k-th smallest value,
+
+47
+00:03:12,163 --> 00:03:13,917
+without sorting everything.
+
+48
+00:03:14,967 --> 00:03:17,063
+And why do interviewers ask it?
+
+49
+00:03:17,113 --> 00:03:21,702
+The idea is simple, but the index
+bookkeeping is easy to get wrong.
+
+50
+00:03:21,752 --> 00:03:26,687
+The fix is to state the invariant
+first: four regions, three boundaries.
+
+51
+00:03:26,737 --> 00:03:30,357
+Then every line of the loop
+only has to keep it true.
+
+52
+00:03:30,907 --> 00:03:36,276
+The same habit solves related problems,
+like sort colors, move zeros to the end,
+
+53
+00:03:36,326 --> 00:03:38,377
+and remove duplicates in place.
+
+54
+00:03:40,427 --> 00:03:41,671
+Thanks for watching.
+
+55
+00:03:41,721 --> 00:03:46,267
+Subscribe to Edge Cases for more
+Python, algorithms, and system design,
+
+56
+00:03:46,317 --> 00:03:47,497
+explained visually.
