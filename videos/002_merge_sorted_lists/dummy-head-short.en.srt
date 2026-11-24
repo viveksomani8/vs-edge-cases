@@ -1,0 +1,70 @@
+1
+00:00:00,967 --> 00:00:05,477
+One extra node that makes linked
+list code simpler: the dummy head.
+
+2
+00:00:06,200 --> 00:00:08,352
+Merging two sorted linked lists.
+
+3
+00:00:08,402 --> 00:00:11,312
+Before the loop can
+start, you need a head.
+
+4
+00:00:11,362 --> 00:00:15,510
+So you compare the two fronts
+once, by hand, just to pick it.
+
+5
+00:00:15,833 --> 00:00:18,535
+Then the loop makes the
+same comparison again.
+
+6
+00:00:18,585 --> 00:00:22,183
+And you still need an extra
+check, in case one list is empty.
+
+7
+00:00:22,500 --> 00:00:27,410
+Now put one placeholder node in
+front: a dummy. Tail starts on it.
+
+8
+00:00:27,733 --> 00:00:30,076
+The first node is no longer special.
+
+9
+00:00:30,126 --> 00:00:32,734
+The loop links it like every other node.
+
+10
+00:00:32,784 --> 00:00:36,323
+The duplicate code is gone,
+and empty lists just work.
+
+11
+00:00:36,667 --> 00:00:41,017
+At the end, return dummy's
+next. That is the real head.
+
+12
+00:00:41,367 --> 00:00:46,928
+Rule of thumb: use a dummy whenever the
+head of the result is not known up front,
+
+13
+00:00:46,978 --> 00:00:48,037
+or might change.
+
+14
+00:00:48,367 --> 00:00:53,815
+You will see it again in remove the n-th
+node, partition list, and add two numbers.
+
+15
+00:00:53,865 --> 00:00:56,797
+The full merge walkthrough
+is on the channel.

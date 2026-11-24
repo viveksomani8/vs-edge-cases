@@ -1,0 +1,267 @@
+1
+00:00:01,000 --> 00:00:05,888
+Two sorted linked lists become
+one. No new nodes. No copying.
+
+2
+00:00:05,938 --> 00:00:07,750
+Only the arrows change.
+
+3
+00:00:08,800 --> 00:00:11,127
+Merge two sorted linked lists.
+
+4
+00:00:11,177 --> 00:00:16,990
+You are given the heads of two lists,
+a and b. Each one is already sorted.
+
+5
+00:00:17,533 --> 00:00:21,883
+Return a single sorted list that
+contains every node from both.
+
+6
+00:00:22,400 --> 00:00:25,771
+The catch: you must
+reuse the existing nodes.
+
+7
+00:00:25,821 --> 00:00:28,661
+The only field you may change is next.
+
+8
+00:00:28,711 --> 00:00:31,550
+So the extra space has to be constant.
+
+9
+00:00:32,567 --> 00:00:33,986
+Both lists are sorted,
+
+10
+00:00:34,036 --> 00:00:38,863
+so the smallest value that is left is
+always at the front of one of them.
+
+11
+00:00:38,913 --> 00:00:42,203
+So the brute force way is:
+compare the two fronts,
+
+12
+00:00:42,253 --> 00:00:45,877
+copy the smaller one into a
+brand new list, and repeat.
+
+13
+00:00:46,400 --> 00:00:51,947
+That is already linear time: big O of
+n plus m, for lists of length n and m.
+
+14
+00:00:51,997 --> 00:00:56,440
+But every node gets copied, so
+the extra space is linear too.
+
+15
+00:00:56,490 --> 00:01:00,270
+And that is exactly what
+the problem does not allow.
+
+16
+00:01:01,400 --> 00:01:03,191
+So here is the better idea.
+
+17
+00:01:03,241 --> 00:01:06,260
+Keep exactly the same
+walk, but stop copying.
+
+18
+00:01:06,310 --> 00:01:11,510
+Take the node itself, and link it into
+the result by changing a next pointer.
+
+19
+00:01:12,033 --> 00:01:16,243
+But which node becomes the head of
+the result? We do not know yet.
+
+20
+00:01:16,293 --> 00:01:21,663
+So we start with a placeholder, called a
+dummy node, and build the result behind it.
+
+21
+00:01:22,200 --> 00:01:27,270
+A reference called tail always points
+at the last node of the merged list.
+
+22
+00:01:27,320 --> 00:01:32,390
+Everything from dummy to tail is merged
+and sorted. That is the invariant.
+
+23
+00:01:34,533 --> 00:01:38,446
+In code: dummy and tail
+start on the same new node.
+
+24
+00:01:38,496 --> 00:01:42,563
+Then the loop runs while
+both lists still have nodes.
+
+25
+00:01:43,100 --> 00:01:47,112
+Compare the fronts: two
+and one. One is smaller.
+
+26
+00:01:47,162 --> 00:01:51,850
+So tail's next is set to that
+node, and b moves forward.
+
+27
+00:01:52,200 --> 00:01:55,311
+Then tail steps onto
+the node we just linked.
+
+28
+00:01:55,361 --> 00:01:57,910
+The merged list is now one node long.
+
+29
+00:01:58,333 --> 00:02:03,969
+Next: two against five. Two is
+smaller. Watch the arrow out of one.
+
+30
+00:02:04,019 --> 00:02:10,843
+It used to point at five. Now it points
+at two. No node moved. Only next changed.
+
+31
+00:02:11,267 --> 00:02:13,083
+Five against five: a tie.
+
+32
+00:02:13,133 --> 00:02:18,158
+The comparison is less than or equal,
+so the node from a goes first.
+
+33
+00:02:18,208 --> 00:02:23,457
+That keeps the merge stable: equal
+values stay in their original order.
+
+34
+00:02:23,900 --> 00:02:30,170
+Now five, from b, against eight. Five
+is smaller. Link it, and advance.
+
+35
+00:02:31,400 --> 00:02:35,478
+Eight against nine. Eight
+is smaller. Link it.
+
+36
+00:02:35,528 --> 00:02:37,990
+And now, list a has run out.
+
+37
+00:02:38,433 --> 00:02:41,305
+The loop stops as soon
+as one list is empty.
+
+38
+00:02:41,355 --> 00:02:45,954
+The rest of the other list is still
+sorted, and still linked together.
+
+39
+00:02:46,004 --> 00:02:50,602
+So a single assignment attaches all
+of it: tail's next becomes a or b,
+
+40
+00:02:50,652 --> 00:02:52,063
+whichever one is left.
+
+41
+00:02:52,600 --> 00:02:57,750
+Finally, skip the placeholder. Return
+dummy's next. That is the real head.
+
+42
+00:02:57,800 --> 00:03:02,950
+Drawn in a straight line, it is the
+same seven nodes, now in sorted order.
+
+43
+00:03:03,900 --> 00:03:07,977
+Time: every pass of the loop
+links exactly one node.
+
+44
+00:03:08,027 --> 00:03:13,770
+So the time is linear: big O of n plus
+m, the two lengths added together.
+
+45
+00:03:14,300 --> 00:03:19,904
+Space: one dummy node and a few
+references, whatever the size of the input.
+
+46
+00:03:19,954 --> 00:03:22,090
+That is constant extra space.
+
+47
+00:03:23,733 --> 00:03:25,006
+Where is this used?
+
+48
+00:03:25,056 --> 00:03:27,443
+It is the merge step of merge sort.
+
+49
+00:03:27,493 --> 00:03:31,203
+And merge sort is the usual
+way to sort a linked list.
+
+50
+00:03:32,233 --> 00:03:37,542
+It is also the building block for merging
+k sorted lists: merge them in pairs,
+
+51
+00:03:37,592 --> 00:03:38,503
+or use a heap.
+
+52
+00:03:39,033 --> 00:03:40,204
+And the dummy node?
+
+53
+00:03:40,254 --> 00:03:43,160
+It removes edge cases
+far beyond this problem.
+
+54
+00:03:43,210 --> 00:03:47,143
+That story has its own short
+video, linked in the description.
+
+55
+00:03:48,967 --> 00:03:50,211
+Thanks for watching.
+
+56
+00:03:50,261 --> 00:03:54,807
+Subscribe to Edge Cases for more
+Python, algorithms, and system design,
+
+57
+00:03:54,857 --> 00:03:56,037
+explained visually.

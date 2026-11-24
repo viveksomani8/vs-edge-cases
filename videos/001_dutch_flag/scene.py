@@ -2,11 +2,11 @@
 
 Render (from the project root):
     uv run --system-certs --no-project --python 3.12 --with manim \
-        python -m manim -qh --fps 30 videos/dutch_flag/scene.py DutchFlag
+        python -m manim -qh --fps 30 videos/001_dutch_flag/scene.py DutchFlag
     uv run --system-certs --no-project --python 3.12 --with manim \
-        python videos/dutch_flag/mux_narration.py \
+        python videos/001_dutch_flag/mux_narration.py \
         media/videos/scene/1080p30/DutchFlag.mp4 media/narration_timeline.json \
-        videos/dutch_flag/dutch-national-flag-narrated.mp4
+        videos/001_dutch_flag/dutch-national-flag-narrated.mp4
 
 Narration: the render itself is silent. Each beat is timed to the length of its
 clip (audio/01.mp3 .. audio/25.mp3, in order) and the clip start times are

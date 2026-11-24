@@ -2,7 +2,7 @@
 
 Render (from the project root):
     uv run --system-certs --no-project --python 3.12 --with manim \
-        python -m manim -s -r 1280,720 videos/dutch_flag/thumbnail.py Thumbnail
+        python -m manim -s -r 1280,720 videos/001_dutch_flag/thumbnail.py Thumbnail
 """
 
 from manim import *

@@ -1,0 +1,79 @@
+1
+00:00:01,000 --> 00:00:07,190
+Coming from C++ or PHP, you write a stack
+class in Python. You do not need it.
+
+2
+00:00:07,240 --> 00:00:09,030
+Python already has one.
+
+3
+00:00:09,867 --> 00:00:16,283
+A list is the stack. Append pushes. [-1]
+peeks at the top. Pop takes the last item.
+
+4
+00:00:16,333 --> 00:00:21,737
+All of it happens at the end of the
+list, so nothing else has to move.
+
+5
+00:00:22,567 --> 00:00:24,473
+A queue takes from the front.
+
+6
+00:00:24,523 --> 00:00:27,914
+With a list, that is pop(0).
+The answer is correct.
+
+7
+00:00:27,964 --> 00:00:31,085
+But every item behind it
+shifts one place left.
+
+8
+00:00:31,135 --> 00:00:33,918
+Drain two hundred thousand items this way,
+
+9
+00:00:33,968 --> 00:00:37,157
+and on this machine it
+takes about five seconds.
+
+10
+00:00:37,993 --> 00:00:41,033
+So use a deque, from
+the collections module.
+
+11
+00:00:41,083 --> 00:00:44,545
+popleft() takes the front,
+and nothing else moves.
+
+12
+00:00:44,595 --> 00:00:47,143
+The same job takes nine milliseconds.
+
+13
+00:00:47,960 --> 00:00:51,635
+So when do you write the
+class? When it adds something.
+
+14
+00:00:51,685 --> 00:00:53,871
+To limit callers to push and pop.
+
+15
+00:00:53,921 --> 00:00:58,070
+Or to add behaviour, like a stack
+that also knows its minimum.
+
+16
+00:00:58,893 --> 00:01:03,249
+So. For a stack, use a list.
+For a queue, use a deque.
+
+17
+00:01:03,299 --> 00:01:07,083
+And write a class only
+when it earns its place.

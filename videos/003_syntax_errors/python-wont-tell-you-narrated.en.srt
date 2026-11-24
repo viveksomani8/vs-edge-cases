@@ -1,0 +1,371 @@
+1
+00:00:01,000 --> 00:00:03,545
+This Python file has five mistakes.
+
+2
+00:00:03,595 --> 00:00:07,030
+Run it, and Python tells
+you about exactly one.
+
+3
+00:00:08,467 --> 00:00:12,175
+If you are coming from C,
+C plus plus, Java or PHP,
+
+4
+00:00:12,225 --> 00:00:14,607
+your hands already know a syntax.
+
+5
+00:00:14,657 --> 00:00:20,577
+Python will reject some of it, crash on
+some of it, and silently accept the rest.
+
+6
+00:00:21,100 --> 00:00:25,332
+So we will sort the mistakes
+by when you find out.
+
+7
+00:00:25,382 --> 00:00:27,815
+One: Python refuses to start.
+
+8
+00:00:27,865 --> 00:00:30,641
+Two: it fails when the line runs.
+
+9
+00:00:30,691 --> 00:00:33,210
+Three: it says nothing at all.
+
+10
+00:00:34,333 --> 00:00:37,009
+Start with the one Python did report.
+
+11
+00:00:37,059 --> 00:00:42,756
+In C or PHP, parentheses and braces mark
+the block. In Python, the colon does.
+
+12
+00:00:42,806 --> 00:00:47,323
+Leave it out, and nothing in the
+file runs. Not even line one.
+
+13
+00:00:48,467 --> 00:00:49,822
+Braces are gone too.
+
+14
+00:00:49,872 --> 00:00:52,632
+In Python, the indentation is the block.
+
+15
+00:00:52,682 --> 00:00:56,988
+One line that does not line up,
+or a tab mixed in with spaces,
+
+16
+00:00:57,038 --> 00:00:59,377
+and again the file will not start.
+
+17
+00:01:00,400 --> 00:01:04,362
+The rest of this group are
+the same kind of habit.
+
+18
+00:01:04,412 --> 00:01:06,689
+Double ampersand becomes and.
+
+19
+00:01:06,739 --> 00:01:11,183
+Plus plus becomes plus equals
+one. Else if becomes elif.
+
+20
+00:01:11,233 --> 00:01:14,393
+The three part for loop becomes a range.
+
+21
+00:01:14,443 --> 00:01:19,770
+And null becomes None, with a
+capital N. But look at that last one.
+
+22
+00:01:19,820 --> 00:01:21,776
+It is not a syntax error.
+
+23
+00:01:21,826 --> 00:01:26,430
+The file starts, and fails
+later. That is the second kind.
+
+24
+00:01:27,867 --> 00:01:29,080
+Back to our file.
+
+25
+00:01:29,130 --> 00:01:34,802
+Add the colon, and run it again. No
+error. But no output either. Nothing ran.
+
+26
+00:01:34,852 --> 00:01:39,261
+That silence is the third kind,
+and we will come back to it.
+
+27
+00:01:39,311 --> 00:01:43,497
+For now, the fix is two
+underscores on each side of main.
+
+28
+00:01:44,433 --> 00:01:45,209
+Run again.
+
+29
+00:01:45,259 --> 00:01:48,924
+Now the file starts,
+and crashes inside push.
+
+30
+00:01:48,974 --> 00:01:52,143
+In C, you write into an array by index.
+
+31
+00:01:52,193 --> 00:01:56,023
+In PHP, assigning to an
+index creates the slot.
+
+32
+00:01:56,073 --> 00:01:59,903
+A Python list never grows
+that way. You append.
+
+33
+00:02:00,833 --> 00:02:05,000
+Run again. Thirty, twenty. It
+works. And this is the trap.
+
+34
+00:02:05,050 --> 00:02:09,870
+Two mistakes are still in the file,
+in lines that have not run yet.
+
+35
+00:02:09,920 --> 00:02:14,014
+A C compiler checks every line
+before the program starts.
+
+36
+00:02:14,064 --> 00:02:16,703
+Python checks a line when it runs it.
+
+37
+00:02:17,233 --> 00:02:18,888
+So make those lines run.
+
+38
+00:02:18,938 --> 00:02:21,587
+Pop a third time, from an empty stack.
+
+39
+00:02:21,637 --> 00:02:25,423
+Type error: exceptions must
+derive from BaseException.
+
+40
+00:02:25,473 --> 00:02:28,122
+In C plus plus you can throw anything.
+
+41
+00:02:28,172 --> 00:02:32,383
+In Python, an exception class
+has to inherit from Exception.
+
+42
+00:02:33,333 --> 00:02:33,951
+Run again.
+
+43
+00:02:34,001 --> 00:02:39,490
+The except branch runs for the first time,
+and finds a name that was never defined.
+
+44
+00:02:39,540 --> 00:02:43,227
+One wrong letter, sitting
+there since the first version.
+
+45
+00:02:43,277 --> 00:02:45,763
+Fix it, and the file is finally clean.
+
+46
+00:02:46,900 --> 00:02:52,352
+The same kind shows up everywhere.
+Lowercase true. Calling length as a method.
+
+47
+00:02:52,402 --> 00:02:54,327
+Adding a number to a string.
+
+48
+00:02:54,377 --> 00:02:56,302
+Forgetting self in a method.
+
+49
+00:02:56,352 --> 00:03:00,394
+Dividing with one slash, and
+using the result as an index.
+
+50
+00:03:00,444 --> 00:03:04,062
+All of them start fine, and
+fail when the line runs.
+
+51
+00:03:04,112 --> 00:03:07,730
+So the rule is: make every
+branch run at least once.
+
+52
+00:03:09,767 --> 00:03:13,844
+Now the third kind: no error
+at all. Remember the silence?
+
+53
+00:03:13,894 --> 00:03:19,323
+The name is compared with the wrong
+string, so the condition is simply false.
+
+54
+00:03:19,373 --> 00:03:21,031
+Python has no complaint.
+
+55
+00:03:21,081 --> 00:03:23,237
+Your program just does nothing.
+
+56
+00:03:24,267 --> 00:03:26,135
+Plus plus i is legal Python.
+
+57
+00:03:26,185 --> 00:03:28,395
+It is a plus sign, applied twice.
+
+58
+00:03:28,445 --> 00:03:31,752
+The value does not change,
+and nothing warns you.
+
+59
+00:03:31,802 --> 00:03:35,657
+As the counter of a while
+loop, that is an infinite loop.
+
+60
+00:03:36,700 --> 00:03:41,438
+Range one to five stops at
+four. The end is never included.
+
+61
+00:03:41,488 --> 00:03:44,846
+And five divided by two is two point five.
+
+62
+00:03:44,896 --> 00:03:47,930
+For integer division, use two slashes.
+
+63
+00:03:48,967 --> 00:03:50,928
+Assignment does not copy.
+
+64
+00:03:50,978 --> 00:03:56,960
+In PHP, and with a C plus plus vector,
+b equals a gives you a second array.
+
+65
+00:03:57,010 --> 00:04:00,580
+In Python, both names
+point at the same list.
+
+66
+00:04:00,630 --> 00:04:03,637
+Change one, and the other changes too.
+
+67
+00:04:04,667 --> 00:04:08,584
+And a default argument is
+created once, not once per call.
+
+68
+00:04:08,634 --> 00:04:14,057
+Give a function an empty list as a default,
+and every call shares that one list.
+
+69
+00:04:15,700 --> 00:04:17,998
+Two things that are not mistakes.
+
+70
+00:04:18,048 --> 00:04:20,987
+A semicolon at the end of a line is legal.
+
+71
+00:04:21,037 --> 00:04:23,691
+So are parentheses around a condition.
+
+72
+00:04:23,741 --> 00:04:29,170
+Some lists online call them syntax
+errors. They are not. They are just noise.
+
+73
+00:04:30,300 --> 00:04:34,118
+Put the three kinds side by
+side, and there is a pattern.
+
+74
+00:04:34,168 --> 00:04:38,665
+The mistakes you make most often
+are the ones Python catches first.
+
+75
+00:04:38,715 --> 00:04:42,330
+The ones that cost you hours
+are the rare, quiet ones.
+
+76
+00:04:43,467 --> 00:04:44,580
+So, two habits.
+
+77
+00:04:44,630 --> 00:04:47,372
+Run the file after every small edit.
+
+78
+00:04:47,422 --> 00:04:52,646
+And make every branch run at least
+once. Python will tell you a lot.
+
+79
+00:04:52,696 --> 00:04:56,137
+But only about the lines
+it has actually run.
+
+80
+00:04:57,767 --> 00:04:59,011
+Thanks for watching.
+
+81
+00:04:59,061 --> 00:05:03,607
+Subscribe to Edge Cases for more
+Python, algorithms, and system design,
+
+82
+00:05:03,657 --> 00:05:04,837
+explained visually.

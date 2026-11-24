@@ -14,6 +14,11 @@ dependencies = [
 [project.scripts]
 python-ztm = "python_ztm:main"
 
+# Lets the editor resolve imports between the practice scripts in src/epi,
+# which import each other by bare module name. Has no effect on running them.
+[tool.pyright]
+extraPaths = ["src/epi"]
+
 [build-system]
 requires = ["uv_build>=0.12.0,<0.13.0"]
 build-backend = "uv_build"

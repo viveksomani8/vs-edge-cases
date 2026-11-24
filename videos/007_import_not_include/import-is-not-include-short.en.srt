@@ -1,0 +1,84 @@
+1
+00:00:01,000 --> 00:00:04,883
+In C, #include pastes a file into yours.
+
+2
+00:00:04,933 --> 00:00:10,390
+In PHP, require does the same.
+Python's import does not.
+
+3
+00:00:11,233 --> 00:00:15,717
+Import tree_node, then use the
+class, and you get a NameError.
+
+4
+00:00:15,767 --> 00:00:18,423
+Import gave you one name: the module.
+
+5
+00:00:18,473 --> 00:00:20,543
+The class is still inside it.
+
+6
+00:00:21,367 --> 00:00:25,275
+So reach the class through
+the module, with a dot.
+
+7
+00:00:25,325 --> 00:00:28,997
+Or use from … import to
+bring in that one name.
+
+8
+00:00:29,833 --> 00:00:30,877
+Second surprise.
+
+9
+00:00:30,927 --> 00:00:36,274
+This file imports its neighbour, in the
+same folder, and Python cannot find it.
+
+10
+00:00:36,324 --> 00:00:39,075
+Include looks next to the file that asks.
+
+11
+00:00:39,125 --> 00:00:42,423
+Python looks in the folder
+of the script you ran.
+
+12
+00:00:42,767 --> 00:00:47,517
+So write the path from that
+folder: utils.tree_node.
+
+13
+00:00:48,333 --> 00:00:49,050
+One more.
+
+14
+00:00:49,100 --> 00:00:51,522
+A file name is a module name.
+
+15
+00:00:51,572 --> 00:00:56,123
+So no hyphens, and no leading
+digits. Use underscores.
+
+16
+00:00:56,967 --> 00:00:57,142
+So.
+
+17
+00:00:57,192 --> 00:01:00,454
+Import gives you a
+module, not its contents.
+
+18
+00:01:00,504 --> 00:01:03,163
+Paths start from the script you ran.
+
+19
+00:01:03,213 --> 00:01:05,797
+And name your files like variables.

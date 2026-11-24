@@ -5,11 +5,11 @@ drawing code in scene.py, laid out again for a 1080x1920 frame.
 
 Render and add the narration (from the project root):
     uv run --system-certs --no-project --python 3.12 --with manim \
-        python -m manim --fps 30 videos/dutch_flag/short.py DutchFlagShort
+        python -m manim --fps 30 videos/001_dutch_flag/short.py DutchFlagShort
     uv run --system-certs --no-project --python 3.12 --with manim \
-        python videos/dutch_flag/short.py \
+        python videos/001_dutch_flag/short.py \
         media/videos/short/1920p30/DutchFlagShort.mp4 media/short_timeline.json \
-        videos/dutch_flag/dutch-national-flag-short.mp4
+        videos/001_dutch_flag/dutch-national-flag-short.mp4
 """
 
 import json
